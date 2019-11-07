@@ -1,0 +1,8 @@
+TerminalScreen,VteTerminal, vte-terminal {
+	padding: 20px;
+	border: 5px solid white;
+}
+.roxterm {
+	padding: 20px;
+	border: 5px solid white;
+}
