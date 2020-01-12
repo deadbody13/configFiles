@@ -16,16 +16,13 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
+# keybindings
+bindkey "^u" kill-whole-line
+
+
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
-
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -69,15 +66,25 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # Load zsh-syntax-highlighting; should be last.
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
-# startup prompt
+# Get Home/End keys working
+autoload zkbd
+source /home/sven/.zkbd/screen-:0
+
+[[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
+[[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
+[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
+[[ -n ${key[PageUp]} ]] && bindkey "${key[PageUp]}" up-line-or-history
+[[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
+[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
+[[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" down-line-or-history
+[[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-search
+[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
+[[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
+[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
+
+
+### startup
 echo "Welcome to Terminal!"
 echo ""
-
-# aliases
-alias update='sudo dnf update'
-alias fetchNotes='rclone copy -v remote:"Fall 2019"/Notes/ /home/sven/Documents/Notes/'
-alias returnNotes='rclone copy -v /home/sven/Documents/Notes/ remote:"Fall 2019"/Notes/'
-alias groupme='cd /home/sven/Electron/GroupMe-linux-x64/ && ./GroupMe'
