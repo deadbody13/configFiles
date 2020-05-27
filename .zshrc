@@ -66,11 +66,11 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
 # Get Home/End keys working
 autoload zkbd
-source /home/sven/.zkbd/screen-:0
+source /home/sven/.zkbd/xterm-256color-:0
 
 [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
 [[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
@@ -85,6 +85,24 @@ source /home/sven/.zkbd/screen-:0
 [[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
 
 
+
+### path
+path+=('home/sven/.local/bin')
+export path
+
 ### startup
-echo "Welcome to Terminal!"
-echo ""
+  echo "Welcome to Terminal!"
+  echo ""
+
+
+### aliases
+	alias update="sudo dnf update"
+	alias pkill="pkill -ec"
+    alias webServer="python3 -m http.server"
+    alias ls="lsd -F --tree --depth 1"
+    # alias lt="lsd -F --tree --depth 1"
+    alias lt="lsd -F --tree --depth 2"
+
+### github
+  alias fetchSolarMaster="git clone git@github.com:SolarChargingStation/SolarChargingStation.github.io.git"
+  alias fetchSolarBranch="git clone --single-branch --branch dev git@github.com:SolarChargingStation/SolarChargingStation.github.io.git"
