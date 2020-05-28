@@ -9,6 +9,7 @@
             "file:///home/sven/Documents/Programming/C/testCode"
         ],
         "files2": [
+            "file:///home/sven/.zshrc",
             "file:///home/sven/games/prime/prime.cpp",
             "file:///home/sven/.config/alacritty/alacritty.yml",
             "file:///home/sven/games/blackJack/blackJack_Old.cpp",
@@ -109,6 +110,16 @@
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "path": "/home/sven/.zshrc",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.zshrc"
                                 },
                                 {
                                     "id": "openRecentFile",
@@ -657,8 +668,7 @@
                 "items": [
                     {
                         "id": "workbench.action.navigateBack",
-                        "label": "&&Back",
-                        "enabled": false
+                        "label": "&&Back"
                     },
                     {
                         "id": "workbench.action.navigateForward",
@@ -1549,8 +1559,8 @@
                 "mode": 0,
                 "x": 0,
                 "y": 0,
-                "width": 1918,
-                "height": 1021
+                "width": 1278,
+                "height": 669
             }
         },
         "openedWindows": []
