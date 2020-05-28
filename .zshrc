@@ -3,7 +3,9 @@
 # Enable colors and change prompt:
 autoload -U colors && colors
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-PS1="%{$fg[green]%} 𝚫 %{$fg[yellow]%}%1~%{$fg[green]%} δ %{$reset_color%}"
+#PS1="%{$fg[green]%} 𝚫 %{$fg[yellow]%}%1~%{$fg[green]%} δ %{$reset_color%}"
+PS1="%{$fg[green]%} ∑ %{$fg[yellow]%}%1~%{$fg[green]%} ∫ %{$reset_color%}∵ "
+#export PS1="%d %% "
 #export PS1="%d %% "
 
 # History in cache directory:
