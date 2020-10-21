@@ -169,12 +169,14 @@ exec_always --no-startup-id /home/sven/.config/polybar/launch.sh
 bindsym Menu exec --no-startup-id "rofi -combi-modi window,drun,ssh -show combi"
 
 # wallpaper
-exec feh --bg-fill /home/sven/Pictures/Wallpapers/neon/retro-wave-purple-skyscraper-city.jpg
+exec_always --no-startup-id feh --bg-fill /home/sven/Pictures/Wallpapers/neon/wall.png
 
 # gaps
 # smart_gaps on
-gaps inner 3
-gaps outer 2
+gaps inner 4
+gaps left 5
+gaps right 5
+gaps top 25
 
 # enable notifications
 exec dunst
@@ -184,7 +186,7 @@ bindsym $mod+Shift+f exec nautilus
 bindsym Print exec flameshot gui
 
 # compositor
-exec compton -b
+exec_always --no-startup-id picom --config /home/sven/.config/picom/picom.conf 
 
 # power management 
 exec xfce4-power-manager 
