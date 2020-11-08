@@ -130,6 +130,7 @@ interval = 25
 mount-0 = /
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted-underline = ${colors.lightColor_3}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.lightColor_3}
 
@@ -146,7 +147,8 @@ label-mode-background = ${colors.foreground}
 
 label-focused = %index%
 label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.medColor_2}
+label-focused-background = ${colors.background}
+label-focused-underline = ${colors.lightColor_2}
 label-focused-padding = 2
 
 label-unfocused-foreground = ${colors.lightColor_2}
@@ -155,6 +157,7 @@ label-unfocused-padding = 2
 
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -192,6 +195,7 @@ type = internal/cpu
 interval = 2
 format-prefix = "CPU: "
 format-prefix-foreground = ${colors.lightColor_3}
+format-underline = ${colors.lightColor_3}
 label = %percentage:2%%
 
 [module/memory]
@@ -199,6 +203,7 @@ type = internal/memory
 interval = 2
 format-prefix = "RAM:  "
 format-prefix-foreground = ${colors.lightColor_2}
+format-underline = ${colors.lightColor_3}
 label = %percentage_used%%
 
 [module/wlan]
@@ -207,10 +212,12 @@ interface = net1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
+format-connected-underline = ${colors.lightColor_1}
 label-connected = %essid%
 
 format-disconnected = "Disconnected"
 ;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -233,6 +240,7 @@ label-connected = "IP: %local_ip%"
 
 format-disconnected = "disconnected"
 ;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -248,6 +256,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground}
+format-underline = #bf2b40
 
 label = %date% %time%
 
