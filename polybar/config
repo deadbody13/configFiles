@@ -35,7 +35,8 @@ darkColor_3 = #010e1f
 darkColor_4 = #130e12
 darkColor_5 = #091220
 
-background = ${colors.medColor_4}
+# background = ${colors.medColor_4}
+background = #C8000000
 foreground = ${colors.lightColor_1}
 alert = #bd2c40
 
@@ -83,7 +84,7 @@ cursor-scroll = ns-resize
 enable-ipc = true
 monitor = DVI-D-0
 width = 100%
-height = 25
+height = 20
 offset-x = 0
 offset-y = 0
 radius = 0
@@ -145,11 +146,11 @@ label-mode-foreground = #000
 label-mode-background = ${colors.foreground}
 
 label-focused = %index%
-label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.medColor_2}
+label-focused-foreground = #000000
+label-focused-background = #8cf5a70a
 label-focused-padding = 2
 
-label-unfocused-foreground = ${colors.lightColor_2}
+label-unfocused-foreground = ${colors.lightColor_1}
 label-unfocused = %index%
 label-unfocused-padding = 2
 
