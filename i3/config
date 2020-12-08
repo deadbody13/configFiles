@@ -110,7 +110,7 @@ workspace $ws4 output DVI-D-0
 # window rules
 for_window [class="Nautilus"] floating enable resize set 800 480
 for_window [class="Nautilus"] move position 300 200
-# for_window [class="Alacritty"] floating enable
+# for_window [class="xterm"] floating enable
 for_window [class="^.*"] border pixel 3
 
 # reload the configuration file
@@ -128,10 +128,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 150 px
-        bindsym k resize grow height 150 px
-        bindsym l resize shrink height 150 px
-        bindsym semicolon resize grow width 150 px
+        bindsym h resize shrink width 150 px
+        bindsym j resize grow height 150 px
+        bindsym k resize shrink height 150 px
+        bindsym l resize grow width 150 px
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -145,7 +145,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 # class                 border  bground text    indicator child_border
-client.focused          #95E1F4 #85FFFF #333333 #2E9EF4   #95E1F4
+# client.focused          #95E1F4 #85FFFF #333333 #2E9EF4   #95E1F4
+client.focused          #95E1F4 #85FFFF #333333 #2E9EF4   #e5e5e0
 client.focused_inactive #333333 #003D3D #5F676A #484E50   #5F676A
 client.unfocused        #333333 #222222 #888888 #292D2E   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
@@ -155,16 +156,22 @@ client.background       #FFFFFF
 
 # polybar
 exec_always --no-startup-id /home/sven/.config/polybar/launch.sh
+# xmobar
+# exec_always --no-startup-id "xmobar -x 0 /home/sven/.xmobarrc"
+# exec_always --no-startup-id "xmobar -x 1 /home/sven/.xmobarrc"
 
 # d-menu / rofi
 # bindsym Menu exec "dmenu_run -nf '#008585' -nb '#000000' -sb '#00C2C2' -sf '#000000' -fn 'monospace-10' -p '>>'"
 bindsym Menu exec --no-startup-id "rofi -combi-modi window,drun,ssh -show combi"
 
 # wallpaper
-exec_always --no-startup-id feh --bg-fill /home/sven/Pictures/Wallpapers/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill /home/sven/Pictures/Wallpapers/wallpaper0348.jpg
 
 # gaps
 # smart_gaps on
+gaps bottom 5
+gaps left 10
+gaps right 10
 gaps inner 4
 
 # enable notifications
@@ -181,5 +188,3 @@ exec_always --no-startup-id picom --config /home/sven/.config/picom/picom.conf
 exec_always xfce4-power-manager 
 
 font pango:MesloLGS NF regular 8
-
-

@@ -17,7 +17,8 @@
 ;==========================================================
 
 [colors]
-lightColor_1 = #95e1f4
+# lightColor_1 = #95e1f4
+lightColor_1 = #e5e5e0
 lightColor_2 = #838285
 lightColor_3 = #8f8a98
 lightColor_4 = #8192a7
@@ -35,13 +36,18 @@ darkColor_3 = #010e1f
 darkColor_4 = #130e12
 darkColor_5 = #091220
 
+background_1 = #BDBDFD
+background_2 = #BC75F9
+background_3 = #535EEB
+background_4 = #00218A
+
 # background = ${colors.medColor_4}
-background = #C8000000
+background = #00000000
 foreground = ${colors.lightColor_1}
 alert = #bd2c40
 
 [bar/example1]
-enable-ipc = true;
+enable-ipc = true
 monitor = HDMI-0
 width = 100%
 height = 20
@@ -54,7 +60,7 @@ override-redirect = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-border-size = 1
+border-size = 0
 border-color = ${colors.lightColor_1}
 
 line-size = 3
@@ -70,18 +76,16 @@ font-0 = MesloLGS NF:style=Regular:pixelsize=10:antialias=true;2
 font-1 = MesloLGS NF:style=Regular:pixelsize=10:antialias=true;2
 font-2 = MesloLGS NF:style=Regular:pixelsize=10:antialias=true;2
 
-modules-left = date
-modules-center = i3
-modules-right = filesystem pulseaudio memory cpu eth 
-
-tray-position = right
-tray-padding = 0
+modules-left = time date
+modules-center = xwindow
+modules-right = i3
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/example2]
 enable-ipc = true
+label-visible = true
 monitor = DVI-D-0
 width = 100%
 height = 20
@@ -97,25 +101,25 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 1
+border-size = 0
 border-color = ${colors.lightColor_1}
 
 padding-left = 2
 padding-right = 2
 
-module-margin-left = 2
+module-margin-left = 0
 module-margin-right = 0
 
 font-0 = MesloLGS NF:style=Regular:pixelsize=10:antialias=true;2
 font-1 = MesloLGS NF:style=Regular:pixelsize=10:antialias=true;2
 font-2 = MesloLGS NF:style=Regular:pixelsize=10:antialias=true;2
 
-modules-left = date
-modules-center = i3
-modules-right = filesystem pulseaudio memory cpu eth 
+modules-left = pulseaudio
+modules-center = xwindow
+modules-right = filesystem i3 date time
 
-tray-position = right
-tray-padding = 0
+# tray-position = right
+# tray-padding = 0
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -123,6 +127,8 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+label-empty = Empty
+label-maxlen = 50
 
 [module/filesystem]
 type = internal/fs
@@ -131,8 +137,11 @@ interval = 25
 mount-0 = /
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted-background = ${colors.background_4}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.lightColor_3}
+label-mounted-padding-left = 1
+label-mounted-padding-right = 1
 
 [module/i3]
 type = internal/i3
@@ -147,7 +156,7 @@ label-mode-background = ${colors.foreground}
 
 label-focused = %index%
 label-focused-foreground = #000000
-label-focused-background = #8cf5a70a
+label-focused-background = ${colors.background_3}
 label-focused-padding = 2
 
 label-unfocused-foreground = ${colors.lightColor_1}
@@ -155,7 +164,8 @@ label-unfocused = %index%
 label-unfocused-padding = 2
 
 label-visible = %index%
-label-visible-background = ${self.label-focused-background}
+label-visible-foreground = ${colors.darkColor_3}
+label-visible-background = ${colors.background_1}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -248,16 +258,22 @@ time = "// %H:%M"
 time-alt = %H:%M:%S
 
 format-prefix = 
-format-prefix-foreground = ${colors.foreground}
+label-background = ${colors.background_1}
+label-foreground = ${colors.darkColor_2}
+label-padding-left = 1
+label-padding-right = 1
 
 label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume><bar-volume>
 label-volume = VOL %percentage%%
-label-volume-foreground = ${colors.lightColor_3}
+label-volume-foreground = ${colors.darkColor_2}
+label-volume-background = ${colors.background_1}
+label-volume-padding-left = 1
+label-volume-padding-right = 1
 
 label-muted = muted
 label-muted-foreground = ${colors.lightColor_2}
@@ -268,16 +284,19 @@ bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
 bar-volume-foreground-3 = #55aa55
 bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-5 = ${colors.background_1}
+bar-volume-foreground-6 = ${colors.background_1}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-fill = -
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.medColor_3}
+bar-volume-empty-foreground = ${colors.medColor_1}
+bar-volume-empty-background = ${colors.medColor_3}
+bar-volume-fill-background = ${colors.background_3}
+bar-volume-indicator-background = ${colors.medColor_3}
 
 [settings]
 screenchange-reload = true
@@ -291,4 +310,7 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 
-; vim:ft=dosini
+[module/info-softwarecounter]
+type = custom/script
+exec = ~/.config/polybar/scripts/info-softwarecounter.py 
+interval = 1

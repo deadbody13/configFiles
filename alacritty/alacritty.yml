@@ -1,4 +1,6 @@
 
+
+
 ####### FONT #########
 font:
   # The normal (roman) font face to use.
@@ -22,34 +24,29 @@ font:
 
 
 ####### COLORS #########
-# Colors (Ayu Dark)
+# Colors (Selenized black)
 colors:
-  # Default colors
   primary:
-    background: '#0A0E14'
-    foreground: '#B3B1AD'
-
-  # Normal colors
+    background: '0x181818'
+    foreground: '0xb9b9b9'
   normal:
-    black: '#01060E'
-    red: '#EA6C73'
-    green: '#91B362'
-    yellow: '#F9AF4F'
-    blue: '#53BDFA'
-    magenta: '#FAE994'
-    cyan: '#90E1C6'
-    white: '#C7C7C7'
-
-  # Bright colors
+    black:   '0x252525'
+    red:     '0xed4a46'
+    green:   '0x70b433'
+    yellow:  '0xdbb32d'
+    blue:    '0x368aeb'
+    magenta: '0xeb6eb7'
+    cyan:    '0x3fc5b7'
+    white:   '0x777777'
   bright:
-    black: '#686868'
-    red: '#F07178'
-    green: '#C2D94C'
-    yellow: '#FFB454'
-    blue: '#59C2FF'
-    magenta: '#FFEE99'
-    cyan: '#95E6CB'
-    white: '#FFFFFF'
+    black:   '0x3b3b3b'
+    red:     '0xff5e56'
+    green:   '0x83c746'
+    yellow:  '0xefc541'
+    blue:    '0x4f9cfe'
+    magenta: '0xff81ca'
+    cyan:    '0x56d8c9'
+    white:   '0xdedede'
     
 background_opacity: 0.9
 TERM: xterm-256color
@@ -61,3 +58,5 @@ window:
   position:
     x: 1100
     y: 130
+
+window.dynamic_title: true

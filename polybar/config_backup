@@ -35,7 +35,8 @@ darkColor_3 = #010e1f
 darkColor_4 = #130e12
 darkColor_5 = #091220
 
-background = ${colors.medColor_4}
+# background = ${colors.medColor_4}
+background = #C8000000
 foreground = ${colors.lightColor_1}
 alert = #bd2c40
 
@@ -83,7 +84,7 @@ cursor-scroll = ns-resize
 enable-ipc = true
 monitor = DVI-D-0
 width = 100%
-height = 25
+height = 20
 offset-x = 0
 offset-y = 0
 radius = 0
@@ -130,7 +131,6 @@ interval = 25
 mount-0 = /
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-mounted-underline = ${colors.lightColor_3}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.lightColor_3}
 
@@ -146,18 +146,16 @@ label-mode-foreground = #000
 label-mode-background = ${colors.foreground}
 
 label-focused = %index%
-label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.background}
-label-focused-underline = ${colors.lightColor_2}
+label-focused-foreground = #000000
+label-focused-background = #8cf5a70a
 label-focused-padding = 2
 
-label-unfocused-foreground = ${colors.lightColor_2}
+label-unfocused-foreground = ${colors.lightColor_1}
 label-unfocused = %index%
 label-unfocused-padding = 2
 
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -195,7 +193,6 @@ type = internal/cpu
 interval = 2
 format-prefix = "CPU: "
 format-prefix-foreground = ${colors.lightColor_3}
-format-underline = ${colors.lightColor_3}
 label = %percentage:2%%
 
 [module/memory]
@@ -203,7 +200,6 @@ type = internal/memory
 interval = 2
 format-prefix = "RAM:  "
 format-prefix-foreground = ${colors.lightColor_2}
-format-underline = ${colors.lightColor_3}
 label = %percentage_used%%
 
 [module/wlan]
@@ -212,12 +208,10 @@ interface = net1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = ${colors.lightColor_1}
 label-connected = %essid%
 
 format-disconnected = "Disconnected"
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -240,7 +234,6 @@ label-connected = "IP: %local_ip%"
 
 format-disconnected = "disconnected"
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -256,7 +249,6 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground}
-format-underline = #bf2b40
 
 label = %date% %time%
 
